@@ -27,12 +27,13 @@ expert-derived and has not been empirically tested.
 - Responses are stored in browser local storage, so they do not sync across devices.
   A shared backend is required before any real use, and student-level data raises
   questions that should be settled before a pilot.
-- The 19 concerns are grouped into 8 canonical skills to make convergence computable.
-  That grouping is a judgment call and is under review.
-- Student-facing item wording is drafted and needs review.
+- Concerns are grouped into skill areas so that convergence can be computed. That
+  grouping is a judgment call and is under review.
+- The Section 5 summary text has not been written yet and appears as a placeholder.
 
-This tool identifies skill focus areas for mentoring, a Tier 2 support. It is not a
-clinical screener and does not assess risk.
+All user-facing wording is taken from the MSMA documentation and the GCS Mentee
+Decision Tree crosswalk. Where the documentation marks something as still to be
+written, the app shows a placeholder rather than substitute text.
 
 ## Running it
 
