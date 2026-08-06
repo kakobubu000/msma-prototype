@@ -1,0 +1,167 @@
+{
+  "_comment": "Recommended Training/Skills descriptions, written by Halle Singer. Keys match the Recommended Training/Skills column of the GCS Mentee Decision Tree crosswalk. Edit here, then run: python3 build.py",
+
+  "Academic Success Strategies": {
+    "what": "Your mentee may benefit from developing habits that improve academic performance and engagement. Focus on helping them identify what is working, overcome obstacles, and build routines that support success over time.",
+    "resources": "AMPED Training Manual: Changing Your GPA, Planning for the Future"
+  },
+  "Goal Setting": {
+    "what": "Your mentee may need support setting realistic goals and following through on them. Help them identify meaningful goals, break them into manageable steps, and celebrate progress along the way.",
+    "resources": "AMPED Training Manual: Goal-Setting & Goal Monitoring, Values, Planning for the Future"
+  },
+  "Growth Mindset": {
+    "what": "Your mentee may benefit from viewing challenges as opportunities to learn rather than signs of failure. Encourage persistence, praise effort, and help them recognize that skills develop through practice.",
+    "resources": "AMPED Training Manual: Motivation, Values"
+  },
+  "Note Taking": {
+    "what": "Your mentee may need strategies for organizing and retaining information during class. Explore different note-taking methods and encourage regular review of notes.",
+    "resources": "AMPED Training Manual: Expository Reading"
+  },
+  "Organization": {
+    "what": "Your mentee may struggle keeping track of assignments, materials, or responsibilities. Help them create simple systems that reduce stress and improve consistency.",
+    "resources": "AMPED Training Manual: Organization, Goal-Setting & Goal Monitoring"
+  },
+  "Planner Systems": {
+    "what": "Using a planner can help your mentee visualize deadlines and plan ahead. Practice checking the planner together and encourage making it part of their daily routine.",
+    "resources": "AMPED Training Manual: Organization"
+  },
+  "Study Skills": {
+    "what": "Your mentee may benefit from learning more effective ways to prepare for school. Help them discover study techniques that fit their learning style and promote confidence.",
+    "resources": "AMPED Training Manual: Expository Reading, Changing Your GPA"
+  },
+  "Task Planning": {
+    "what": "Large assignments can feel overwhelming. Help your mentee break tasks into smaller steps, estimate the time needed, and create a realistic action plan.",
+    "resources": "AMPED Training Manual: Organization, Planning for the Future"
+  },
+  "Test Preparation": {
+    "what": "Your mentee may need support preparing for quizzes and exams. Encourage planning ahead, reviewing material consistently, and practicing healthy study habits.",
+    "resources": "AMPED Training Manual: Expository Reading"
+  },
+  "Time Management": {
+    "what": "Your mentee may have difficulty balancing school, activities, and personal responsibilities. Work together to prioritize tasks, estimate time realistically, and establish routines.",
+    "resources": "AMPED Training Manual: Organization, Goal-Setting & Goal Monitoring, Planning for the Future"
+  },
+
+  "Accountability": {
+    "what": "Your mentee may benefit from taking ownership of responsibilities and following through on commitments. Provide encouragement while helping them reflect on choices and learn from setbacks.",
+    "resources": "AMPED Training Manual: Goal-Setting & Goal Monitoring"
+  },
+  "Breaking Tasks into Steps": {
+    "what": "Complex tasks can feel intimidating. Help your mentee divide larger goals into smaller, achievable steps to build confidence and momentum.",
+    "resources": "AMPED Training Manual: Organization, Planning for the Future"
+  },
+  "Executive Functioning Skills": {
+    "what": "Executive functioning includes planning, organization, self-monitoring, and problem solving. Help your mentee develop routines and strategies that make daily responsibilities more manageable.",
+    "resources": "AMPED Training Manual: Organization, Goal-Setting & Goal Monitoring"
+  },
+  "Focus Strategies": {
+    "what": "Your mentee may struggle maintaining attention or minimizing distractions. Explore simple techniques such as reducing distractions, taking short breaks, or setting focused work periods.",
+    "resources": "AMPED Training Manual: Organization"
+  },
+  "Habit Building": {
+    "what": "Positive habits develop through repetition and consistency. Encourage your mentee to start small, practice regularly, and celebrate progress.",
+    "resources": "AMPED Training Manual: Goal-Setting & Goal Monitoring"
+  },
+  "Organization Systems": {
+    "what": "Systems make it easier to stay organized over time. Help your mentee develop routines for organizing materials, assignments, and responsibilities.",
+    "resources": "AMPED Training Manual: Organization"
+  },
+  "Prioritization": {
+    "what": "Your mentee may have difficulty deciding what to tackle first. Help them identify urgent versus important tasks and develop decision-making strategies.",
+    "resources": "AMPED Training Manual: Planning for the Future"
+  },
+  "Routine Building": {
+    "what": "Consistent routines reduce stress and improve follow-through. Help your mentee establish predictable daily or weekly routines that support success.",
+    "resources": "AMPED Training Manual: Organization"
+  },
+  "Self-Regulation": {
+    "what": "Self-regulation involves managing emotions, attention, and behavior in challenging situations. Model calm responses and help your mentee practice strategies before problems arise.",
+    "resources": "AMPED Training Manual: Relaxation, Learning ABCs"
+  },
+  "Time Blocking": {
+    "what": "Time blocking helps students dedicate specific periods to important tasks. Practice creating a schedule together and adjusting it as needed.",
+    "resources": "AMPED Training Manual: Organization"
+  },
+
+  "Confidence Building": {
+    "what": "Your mentee may need encouragement recognizing their strengths and abilities. Provide specific praise, highlight successes, and create opportunities for mastery.",
+    "resources": "Motivational Interviewing Training: Affirmations; AMPED Training Manual: Values"
+  },
+  "Coping Skills": {
+    "what": "Your mentee may benefit from learning healthy ways to manage stress and challenges. Help them identify coping strategies they can use both in and outside of school.",
+    "resources": "Project Calm; Project Solve; AMPED Training Manual: Relaxation"
+  },
+  "Emotional Regulation": {
+    "what": "Help your mentee recognize emotions, identify triggers, and practice healthy responses to difficult feelings through supportive conversations and coping strategies.",
+    "resources": "Project Calm; AMPED Training Manual: Relaxation, Learning ABCs"
+  },
+  "Emotional Wellness": {
+    "what": "Offer consistent support, encourage healthy self-care, and collaborate with school staff when additional support is needed.",
+    "resources": "Project Think; Practicing the Opposite"
+  },
+  "Mindfulness": {
+    "what": "Mindfulness helps students become more aware of thoughts and emotions without reacting immediately. Practice brief breathing or grounding exercises together.",
+    "resources": "Project Calm; AMPED Training Manual: Relaxation"
+  },
+  "Positive Self-Talk": {
+    "what": "Help your mentee replace negative self-statements with balanced and encouraging thoughts while recognizing their strengths.",
+    "resources": "Project Think; Motivational Interviewing: Affirmations"
+  },
+  "Relaxation Techniques": {
+    "what": "Encourage your mentee to practice breathing exercises or other calming techniques regularly to reduce stress and improve focus.",
+    "resources": "AMPED Training Manual: Relaxation; Project Calm"
+  },
+  "Resilience": {
+    "what": "Help your mentee reflect on challenges, recognize growth, and build confidence through perseverance.",
+    "resources": "Practicing the Opposite; Project Solve"
+  },
+  "Self-Care": {
+    "what": "Encourage routines that promote sleep, healthy habits, and positive activities while recognizing when additional supports may be needed.",
+    "resources": "Project Think; Project Calm"
+  },
+  "Strengths-Based Coaching": {
+    "what": "Focus on what your mentee does well and use those strengths as the foundation for growth.",
+    "resources": "Motivational Interviewing: Affirmations; AMPED Training Manual: Values"
+  },
+  "Stress Management": {
+    "what": "Help your mentee identify stressors and develop healthy coping strategies they can use consistently.",
+    "resources": "Project Calm; AMPED Training Manual: Relaxation, Learning ABCs"
+  },
+
+  "Active Listening": {
+    "what": "Model listening without interrupting, asking thoughtful questions, and reflecting what you hear.",
+    "resources": "Motivational Interviewing: Reflections, Summaries"
+  },
+  "Assertiveness": {
+    "what": "Help your mentee practice expressing thoughts and needs respectfully and confidently.",
+    "resources": "AMPED Training Manual: Feedback (Asking for Help or Performance Feedback)"
+  },
+  "Communication Skills": {
+    "what": "Practice expressing ideas clearly, asking questions, and listening actively to strengthen relationships.",
+    "resources": "AMPED Training Manual: Feedback; Motivational Interviewing: Open-Ended Questions"
+  },
+  "Conflict Resolution": {
+    "what": "Help your mentee understand different perspectives, solve problems, and resolve disagreements respectfully.",
+    "resources": "Project Solve; Motivational Interviewing: Reflections"
+  },
+  "Emotional Intelligence": {
+    "what": "Encourage empathy, self-awareness, and thoughtful responses during interactions.",
+    "resources": "AMPED Training Manual: Learning ABCs"
+  },
+  "Healthy Relationships": {
+    "what": "Model trust, communication, and respect while helping your mentee identify characteristics of healthy relationships.",
+    "resources": "Motivational Interviewing: Reflections"
+  },
+  "Problem Solving": {
+    "what": "Guide your mentee through identifying the problem, exploring options, and evaluating possible solutions.",
+    "resources": "Project Solve"
+  },
+  "Relationship Building": {
+    "what": "Encourage empathy, kindness, and communication skills through consistent positive interactions.",
+    "resources": "Motivational Interviewing: Open-Ended Questions"
+  },
+  "Social Skills": {
+    "what": "Practice conversations, teamwork, and positive peer interactions to build confidence in social situations.",
+    "resources": "Motivational Interviewing: Open-Ended Questions, Reflections"
+  }
+}
