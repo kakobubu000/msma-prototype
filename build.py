@@ -165,7 +165,9 @@ HTML = r"""<!DOCTYPE html>
 
     <h3>Section 4: Needs Convergence Matrix</h3>
     <table id="matrix"></table>
-    <p class="note">Columns auto-populate the needs, skill, and recommendation. Priority is populated as High, Partial, or Low depending on the Skill convergence.</p>
+    <p class="note">Columns will auto-populate the needs, skill, and recommendation. Priority will be populated as High, Partial, or Low depending on the Skill convergence.</p>
+
+    <div id="dq-record"></div>
 
     <h3>Section 5: Summary</h3>
     <div id="summary"></div>
@@ -223,7 +225,13 @@ const CONCERNS = [
 ];
 
 const DOMAIN_ORDER = ["Social","Emotional","Behavioral","Academic"];
-const SOURCES = [{key:"care", label:"Caregiver"},{key:"teach", label:"Teacher"},{key:"ment", label:"Mentee"}];
+/* Section 1 calls the third respondent "Mentee"; the Section 4 matrix calls
+   them "Youth". Both labels are kept so each section matches the doc. */
+const SOURCES = [
+  {key:"care",  label:"Caregiver", matrix:"Caregiver"},
+  {key:"teach", label:"Teacher",   matrix:"Teacher"},
+  {key:"ment",  label:"Mentee",    matrix:"Youth"}
+];
 const PATTERNS = {
   High:    "All three members identified essentially the same primary concern",
   Partial: "Two sources agreed on the primary concern",
@@ -265,7 +273,7 @@ function go(name){
 
 function runMatch(){
   const picks = SOURCES.map(s => ({
-    key:s.key, source:s.label,
+    key:s.key, source:s.label, matrixLabel:s.matrix,
     primary: concernBy(document.getElementById(s.key + "1").value),
     extras: [2,3].map(n => document.getElementById(s.key + n).value).filter(Boolean)
   }));
@@ -367,10 +375,28 @@ function showResults(){
   state.picks.forEach(p => {
     const extras = p.extras.length
       ? "<br><span style='color:var(--faint); font-size:12px;'>" + p.extras.join(", ") + "</span>" : "";
-    tbl.innerHTML += "<tr><td><b>" + p.source + "</b></td><td>" + p.primary.label + extras +
+    tbl.innerHTML += "<tr><td><b>" + p.matrixLabel + "</b></td><td>" + p.primary.label + extras +
       "</td><td>" + p.primary.need + "</td><td><span class='chip " + cls + "'>" + lvl +
       "</span></td><td>" + p.primary.res + "</td></tr>";
   });
+
+  /* Record the Decision Question answers. The doc collects these but the
+     align / do-not-align table only routes on Questions 2 and 3, so the
+     rest are documented rather than used. */
+  const dqRows = [];
+  if (lvl === "Low"){
+    const d = state.dq, nameOf = k => (state.picks.find(p=>p.key===k)||{}).source || k;
+    dqRows.push(["1. “What concern currently causes the greatest impairment?”", d.impairment + " Functioning"]);
+    dqRows.push(["2. “What concern is most likely to prevent success within mentoring if left unaddressed?”", nameOf(d.q2) + " Top Need"]);
+    dqRows.push(["3. “Which concern is most developmentally appropriate for mentoring?”",
+                 d.q3 === "combination" ? "Combination" : nameOf(d.q3) + " Top Need"]);
+    if (d.similar) dqRows.push(["“Do these concerns point to similar underlying needs?”", d.similar === "yes" ? "Yes" : "No"]);
+    if (d.across)  dqRows.push(["“Which concern is affecting the student most across settings?”", nameOf(d.across) + " Top Need"]);
+  }
+  document.getElementById("dq-record").innerHTML = dqRows.length
+    ? "<h3>Decision Questions</h3><table>" +
+      dqRows.map(r => "<tr><td>" + r[0] + "</td><td><b>" + r[1] + "</b></td></tr>").join("") + "</table>"
+    : "";
 
   const priNames = trainingsFor(state.primarySkill);
   const secNames = state.secondarySkill ? trainingsFor(state.secondarySkill) : [];
@@ -384,7 +410,11 @@ function showResults(){
   if (state.caseId) resultLines.push("Student " + state.caseId);
   if (state.role)   resultLines.push("Completed by " + state.role);
   resultLines.push("", lvl + " Convergence", defn, "");
-  state.picks.forEach(p => resultLines.push("  " + p.source + ": " + p.primary.label + " -> " + p.primary.need));
+  state.picks.forEach(p => resultLines.push("  " + p.matrixLabel + ": " + p.primary.label + " -> " + p.primary.need));
+  if (dqRows.length){
+    resultLines.push("", "Decision Questions:");
+    dqRows.forEach(r => resultLines.push("  " + r[0].replace(/[“”]/g,'"') + "  " + r[1]));
+  }
   resultLines.push("", sec ? "Primary Skill: " + pri + "\nSecondary Skill: " + sec : "Underlying Skill: " + pri, "");
   const line = n => { const t = trainingFor(n);
     return t ? n + "\n  What this means for mentoring: " + t.what + "\n  Suggested Resources: " + t.resources
