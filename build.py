@@ -176,18 +176,14 @@ HTML = r"""<!DOCTYPE html>
 
     <div class="share no-print">
       <h3 style="margin-top:0;">Send to your school team</h3>
-      <p style="font-size:13.5px; color:var(--muted); margin-top:4px;">Opens a draft in your own email program with the summary filled in. Nothing is sent automatically, and nothing leaves this page until you send it yourself.</p>
-      <label class="lbl" for="f-to">School team or school personnel email (optional)</label>
-      <input class="field" id="f-to" placeholder="name@school.org; second@school.org">
+      <p style="font-size:13.5px; color:var(--muted); margin-top:4px;">Save this summary as a PDF and attach it to an email to your school team or school personnel, or copy the text and paste it into a message.</p>
       <div class="center">
-        <button class="btn" onclick="emailResults()">Open email draft</button>
-        <button class="btn ghost" onclick="copyResults(this)">Copy full summary</button>
+        <button class="btn" onclick="window.print()">Save as PDF</button>
+        <button class="btn ghost" onclick="copyResults(this)">Copy summary</button>
       </div>
-      <p class="note">The draft contains a short summary. For the full skill descriptions and suggested resources, use Save (PDF) below and attach it, or paste the copied summary into the message.</p>
     </div>
 
     <div class="center no-print">
-      <button class="btn ghost" onclick="window.print()">Save (PDF)</button>
       <button class="btn ghost" onclick="go('entry')">&#8592; Back to Section 1</button>
       <button class="btn ghost" onclick="location.reload()">New assessment</button>
     </div>
@@ -366,7 +362,10 @@ function showResults(){
     Low:    "The concerns map to three distinct mentoring skill areas."
   }[lvl];
   const pri = SKILLS[state.primarySkill], sec = state.secondarySkill ? SKILLS[state.secondarySkill] : null;
-  const meta = [state.caseId ? "Student " + state.caseId : "", state.role ? "Mentor: " + state.role : ""]
+  const today = new Date().toLocaleDateString();
+  const meta = [state.caseId ? "Student " + state.caseId : "",
+                state.role ? "Mentor: " + state.role : "",
+                "Completed " + today]
     .filter(Boolean).join(" &nbsp;&bull;&nbsp; ");
 
   document.getElementById("conv-box").innerHTML =
@@ -420,6 +419,7 @@ function showResults(){
   resultLines = ["Mentee Skill Matching Assessment (MSMA)"];
   if (state.caseId) resultLines.push("Student " + state.caseId);
   if (state.role)   resultLines.push("Mentor: " + state.role);
+  resultLines.push("Completed " + today);
   resultLines.push("", lvl + " Convergence", defn, "");
   state.picks.forEach(p => resultLines.push("  " + p.matrixLabel + ": " + p.primary.label + " -> " + p.primary.need));
   if (dqRows.length){
@@ -436,36 +436,6 @@ function showResults(){
 }
 
 function copyResults(btn){ copyText(resultLines.join("\n"), btn); }
-
-/* Short summary for the email draft. Kept compact because mail programs
-   truncate long mailto links. Full detail goes via Save (PDF) or the
-   copied summary. */
-function emailSummary(){
-  const s = state, pri = SKILLS[s.primarySkill], sec = s.secondarySkill ? SKILLS[s.secondarySkill] : null;
-  const L = ["Mentee Skill Matching Assessment (MSMA)", ""];
-  if (s.caseId) L.push("Student: " + s.caseId);
-  if (s.role)   L.push("Mentor: " + s.role);
-  L.push("Date: " + new Date().toLocaleDateString(), "");
-  L.push(s.level + " Convergence", PATTERNS[s.level], "");
-  L.push("Top Needs identified:");
-  s.picks.forEach(p => L.push("  " + p.matrixLabel + ": " + p.primary.label));
-  L.push("", sec ? "Primary Skill: " + pri + "\nSecondary Skill: " + sec : "Underlying Skill: " + pri);
-  const names = trainingsFor(s.primarySkill);
-  L.push("", "Recommended Training/Skills:", "  " + names.join(", "));
-  if (s.picks.some(p => p.primary.refer))
-    L.push("", "Note: Sadness/Depression was identified. The crosswalk notes referral if indicated.");
-  L.push("", "Full skill descriptions and suggested resources are in the attached summary.");
-  return L.join("\n");
-}
-function emailResults(){
-  if (!state.picks) return;
-  const to = document.getElementById("f-to").value.trim();
-  const subject = "MSMA results" + (state.caseId ? " - Student " + state.caseId : "");
-  const href = "mailto:" + encodeURIComponent(to) +
-    "?subject=" + encodeURIComponent(subject) +
-    "&body=" + encodeURIComponent(emailSummary());
-  window.location.href = href;
-}
 function copyText(t, btn){
   const done = () => { const o = btn.textContent; btn.textContent = "Copied"; setTimeout(()=>btn.textContent=o, 1500); };
   if (navigator.clipboard) navigator.clipboard.writeText(t).then(done).catch(()=>fallbackCopy(t,done));
